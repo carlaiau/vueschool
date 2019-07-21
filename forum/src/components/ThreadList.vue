@@ -1,6 +1,5 @@
 <template>
  <div class="thread-list">
-
         <h2 class="list-title">Threads</h2>
         <ThreadListItem
             v-for="thread in threads"
