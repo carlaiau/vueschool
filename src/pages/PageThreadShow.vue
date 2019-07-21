@@ -37,10 +37,8 @@
             }
         },
         methods: {
-            addPost (eventData) {
-                console.log(eventData)
-                const post = eventData.post
-                const postId = eventData.post['.key']
+            addPost ({post}) {
+                const postId = post['.key']
 
                 // Actually amend the global state
                 this.$set(sourceData.posts, postId, post)
