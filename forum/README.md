@@ -1,6 +1,7 @@
 # forum
 
-> A Vue.js project
+A walk through of the Vueschool.io Vue Master course.
+Based on Vue CLI as below
 
 ## Build Setup
 
