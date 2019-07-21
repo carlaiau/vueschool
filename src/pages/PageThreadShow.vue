@@ -2,15 +2,21 @@
     <div class="col-large push-top">
         <h1>{{thread.title}}</h1>
         <PostList :posts="posts"/>
+        <PostEditor
+            @save="addPost"
+            :threadId="id"
+        />
     </div>
 </template>
 
 <script>
     import sourceData from '@/data'
     import PostList from '@/components/PostList'
+    import PostEditor from '@/components/PostEditor'
     export default {
         components: {
-            PostList
+            PostList,
+            PostEditor
         },
         props: {
             id: {
@@ -28,6 +34,18 @@
                 const postIds = Object.values(this.thread.posts)
                 return Object.values(sourceData.posts)
                     .filter(post => postIds.includes(post['.key']))
+            }
+        },
+        methods: {
+            addPost (eventData) {
+                console.log(eventData)
+                const post = eventData.post
+                const postId = eventData.post['.key']
+
+                // Actually amend the global state
+                this.$set(sourceData.posts, postId, post)
+                this.$set(this.thread.posts, postId, postId)
+                this.$set(sourceData.users[post.userId].posts, postId, postId)
             }
         }
     }
