@@ -1,26 +1,24 @@
 <template>
   <div class="col-full">
     <h1>Welcome to the forum</h1> 
-    <ForumList :forums="forums"/>
+    <CategoryList :categories="categories"/>
   </div>
 </template>
 
 <script>
 import sourceData from '@/data'
-import ForumList from '@/components/ForumList'
+import CategoryList from '@/components/CategoryList'
 export default {
   components: {
-    ForumList
+    CategoryList
   },
   data () {
-    const everything = {
-      threads: Object.values(sourceData.threads),
-      posts: sourceData.posts,
-      users: sourceData.users,
-      forums: Object.values(sourceData.forums)
+    return {
+      categories: Object.values(sourceData.categories)
     }
-    console.log(everything)
-    return everything
+  },
+  mounted () {
+    console.log('sourceData', sourceData)
   }
 }
 </script>
