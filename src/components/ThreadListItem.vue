@@ -26,8 +26,6 @@
 
 <script>
     import sourceData from '@/data'
-    import AppDate from '@/components/AppDate'
-
     export default {
         props: {
             thread: {
@@ -35,9 +33,7 @@
                 type: Object
             }
         },
-        components: {
-            AppDate
-        },
+
         computed: {
             repliesCount () {
                 return Object.keys(this.thread.posts).length - 1

@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import AppDate from '@/components/appDate'
 
 Vue.config.productionTip = false
 
@@ -13,3 +14,6 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
+// Global AppDate Component
+Vue.component('AppDate', AppDate)
