@@ -3,9 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import AppDate from '@/components/appDate'
+import AppDate from '@/components/AppDate'
 
 Vue.config.productionTip = false
+
+// Global AppDate Component
+Vue.component('AppDate', AppDate)
 
 /* eslint-disable no-new */
 new Vue({
@@ -14,6 +17,3 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
-
-// Global AppDate Component
-Vue.component('AppDate', AppDate)
