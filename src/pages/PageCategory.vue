@@ -1,13 +1,14 @@
 <template>
   <div class="col-full">
-    <h1>{{name}}</h1> 
-    <CategoryList :categories="categories"/>
+      
+        <h1>{{category.name}}</h1> 
+        <CategoryListItem :category="category"/>
   </div>
 </template>
 
 <script>
 import sourceData from '@/data'
-import CategoryList from '@/components/CategoryList'
+import CategoryListItem from '@/components/CategoryListItem'
 export default {
     props: {
         id: {
@@ -16,19 +17,12 @@ export default {
         }
     },
     components: {
-        CategoryList
+        CategoryListItem
     },
     computed: {
-        categories () {
-            return Object.values(sourceData.forums)
-                .filter(forum => forum.categoryId === this.id)
-        },
-        name () {
-            return sourceData.categories[this.id].name
+        category () {
+            return sourceData.categories[this.id]
         }
-    },
-    mounted () {
-        console.log(this.id)
     }
 }
 </script>
