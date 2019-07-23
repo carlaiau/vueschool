@@ -10,7 +10,6 @@
 </template>
 
 <script>
-    import sourceData from '@/data'
     import ForumList from '@/components/ForumList'
     export default{
         props: {
@@ -24,7 +23,7 @@
         },
         computed: {
             categoryForums () {
-                return Object.values(sourceData.forums)
+                return Object.values(this.$store.state.forums)
                     .filter(forum => forum.categoryId === this.category['.key'])
             }
         }

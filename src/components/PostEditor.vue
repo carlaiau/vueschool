@@ -1,9 +1,9 @@
 <template>
-    <form @submit.prevent="save"> 
+    <form @submit.prevent="save">
             <div class="form-group">
-                <textarea 
+                <textarea
                     class="form-input"
-                    
+
                     v-model="text"
                 ></textarea>
             </div>
@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import sourceData from '@/data'
+
 export default {
     data () {
         return {
-            thread: sourceData.threads[this.id],
+            thread: this.$store.state.threads[this.id],
             text: ''
         }
     },

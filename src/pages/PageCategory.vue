@@ -1,7 +1,7 @@
 <template>
   <div class="col-full">
-      
-        <h1>{{category.name}}</h1> 
+
+        <h1>{{category.name}}</h1>
         <CategoryListItem :category="category"/>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
     },
     computed: {
         category () {
-            return sourceData.categories[this.id]
+          return this.$store.state.categories[this.id]
         }
     }
 }
