@@ -1,15 +1,14 @@
 <template>
     <form @submit.prevent="save">
-            <div class="form-group">
-                <textarea
-                    class="form-input"
-
-                    v-model="text"
-                ></textarea>
-            </div>
-            <div class="form-actions">
-                <button class="btn-blue">Submit Post</button>
-            </div>
+        <div class="form-group">
+            <textarea
+                class="form-input"
+                v-model="text"
+            ></textarea>
+        </div>
+        <div class="form-actions">
+            <button class="btn-blue">Submit Post</button>
+        </div>
     </form>
 </template>
 
@@ -29,18 +28,15 @@ export default {
     },
     methods: {
         save () {
-            const postId = 'greatPost' + Math.random()
             const post = {
                 text: this.text,
                 publishedAt: Math.floor(Date.now() / 100),
                 threadId: this.threadId,
-                userId: 'ALXhxjwgY9PinwNGHpfai6OWyDu2', // Random selection of Rolf,
-                '.key': postId
+                userId: 'ALXhxjwgY9PinwNGHpfai6OWyDu2'
             }
-            // Reset form input
+            console.log(post)
+            this.$store.dispatch('createPost', post)
             this.text = ''
-
-            // This is returning the new post back to parent
             this.$emit('save', {post})
         }
     }

@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import sourceData from '@/data'
 import CategoryListItem from '@/components/CategoryListItem'
 export default {
     props: {
